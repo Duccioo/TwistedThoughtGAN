@@ -45,7 +45,7 @@ gen_harmonograph()
 ``` 
 
 
-For exsample if you want to create 100 harmonograph with dimension 256x256 on the directory ```/out_img/``` you can use this call:
+For exsample if you want to create 100 harmonograph with dimension 256x256 in the directory ```/out_img/``` you can use this call:
 
 ```python
 gen_harmonograph(n_images=[0, 100], dimension=256, path="out_img")
