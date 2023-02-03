@@ -201,10 +201,10 @@ def main():
         )
 
         # mi salvo i parametri nella cartella di uscita
+        os.makedirs(args.out, exist_ok=True)
         train_params.save_params(args.out)
         print(f"train params: {train_params.__dict__}")
 
-        os.makedirs(args.out, exist_ok=True)
         train(
             generator,
             discriminator,

@@ -176,7 +176,7 @@ def train(
             ),
         )
 
-    print("seed impostato a: ", torch.initial_seed())
+
 
     # Actual training
     # ---------------------------------Loop di addestramento-----------------------------------
