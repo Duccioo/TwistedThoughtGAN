@@ -8,7 +8,6 @@ import torch
 import torch.nn as nn
 import torchvision.models as models
 from torch.nn.functional import normalize
-
 from sklearn.metrics import classification_report
 from utils.swd import swd
 from utils.generate_img import generate_noise

@@ -2,7 +2,6 @@ import os
 import argparse
 import json
 
-from rich import print
 import torch
 from dotenv import load_dotenv
 
