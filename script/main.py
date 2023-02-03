@@ -73,7 +73,7 @@ class TrainParams:
 
         for key, val in kwargs.items():
             if key == "loss" and isinstance(val, str):
-                val = "wasserstein"
+                val = "standard"
 
             if val is not None:
                 self.__dict__[key] = val
