@@ -11,6 +11,7 @@ import utils.telegram_alert
 
 _checkpoint_base_name = "checkpoint_"
 
+
 # ------------------------------------SAVING & LOADING-----------------------------------------
 def load_from_checkpoint(
     checkpoint_path, generator, discriminator, optimizer_G=None, optimizer_D=None
@@ -236,13 +237,23 @@ def save_validation(
     loss_g=0,
     filename="metrics.csv",
 ):
-
     now = datetime.now()
+    if loss_d != 0:
+        loss_d_s = loss_d.item()
+    else:
+        loss_d_s = loss_d
+
+    if loss_g != 0:
+        loss_g_s = loss_g.item()
+
+    else:
+        loss_g_s = loss_g
+
     metrics = [
         step,
         epoch,
-        f"{loss_d.item():.4f}",
-        f"{loss_g.item():.4f}",
+        f"{loss_d_s:.4f}",
+        f"{loss_g_s:.4f}",
         f"{ssim:.4f}",
         f"{psnr:.4f}",
         f"{swd:.4f}",
@@ -322,7 +333,6 @@ def log(
         or run_step % (params.step_per_epoch + 1) == 0
         or run_step == 0
     ):
-
         update_log_training(
             progress_bar, run_epoch, run_step, params.steps, d_loss, g_loss
         )

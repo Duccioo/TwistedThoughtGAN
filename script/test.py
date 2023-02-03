@@ -39,6 +39,7 @@ def test(
         keep_training=True,
         device=device,
     )
+    os.makedirs(out_dir, exist_ok=True)
 
     save_validation(
         accuracy,
