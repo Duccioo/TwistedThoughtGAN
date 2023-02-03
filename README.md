@@ -1,6 +1,6 @@
 
 
-<img src="https://res.cloudinary.com/duccio-me/image/upload/c_scale,r_300000,w_200/v1675424077/output_11_qvbcgv.jpg" width=200 height=200 align="right">
+<img src="https://res.cloudinary.com/duccio-me/image/upload/c_scale,r_300000,w_200/v1675424077/output_11_qvbcgv.png" width=200 height=200 align="right">
 
 
 # TwistedThoughtGAN: Generating Lissajous Figures
