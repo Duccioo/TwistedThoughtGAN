@@ -3,7 +3,7 @@
 <img src="https://res.cloudinary.com/duccio-me/image/upload/c_scale,r_300000,w_200/v1675421850/output_19_bjfubx.jpg" width=200 height=200 align="right">
 
 
-# TwistedThoughtGAN: Generating Lissajous Figures using GAN
+# TwistedThoughtGAN: Generating Lissajous Figures
 Code for the Neural Network exam.
 
 This repository contains the code for a GAN neural network that aims to generate Lissajous figures. Although the results are not exactly Lissajous figures, they are unique and resemble mind flayer or upside down structures. The code is written in Python and includes various modifications to the network architecture, loss functions, learning rate, and other parameters. The purpose of this repository is to showcase the potential of GANs in generating creative and unexpected outputs, even when the original goal is not fully achieved.
