@@ -18,6 +18,7 @@ from utils.divisor import get_closest_batch_size
 from utils.generate_img import generate_noise, save_gen_img
 from utils.save_log import load_from_checkpoint
 import utils.make_gif
+from test import test
 
 
 load_dotenv()
@@ -25,7 +26,6 @@ load_dotenv()
 
 class TrainParams:
     def __init__(self, **kwargs):
-
         # data parameters
         self.epoch = int(os.environ["EPOCH"]) if "EPOCH" in os.environ else 100
         self.batch_size = (
@@ -79,7 +79,6 @@ class TrainParams:
                 self.__dict__[key] = val
 
         if self.train_size % self.batch_size != 0:
-
             self.batch_size = get_closest_batch_size(self.train_size, self.batch_size)
             print("non divisibili, scelgo batch_size:", self.batch_size)
 
@@ -137,8 +136,7 @@ class ModelParams:
 
 
 def main():
-
-    model_params = ModelParams() #initialize model defaults parameters
+    model_params = ModelParams()  # initialize model defaults parameters
 
     parser = argparse.ArgumentParser(description=__doc__)
 
@@ -194,10 +192,9 @@ def main():
         print("unknown img_dim:", args.img_dim)
         exit()
 
-    # create dataset
-    dataset = Data_L(data_folder=os.path.join("input", str(args.img_dim)))
-
     if args.mode == "train":
+        # create dataset
+        dataset = Data_L(data_folder=os.path.join("script", "input", str(args.img_dim)))
         # take parameters
         train_params = TrainParams(
             train_size=dataset.train_size, seed=args.random_seed, telegram=args.telegram
@@ -226,11 +223,31 @@ def main():
 
     elif args.mode == "generate":
         load_from_checkpoint(
-            os.path.join("model", "model.pt"), generator, discriminator
+            os.path.join(os.getcwd(), "script", "model", "model.pt"),
+            generator,
+            discriminator,
         )
-        noise = generate_noise(1, 100, 3).cuda()
-        save_gen_img(
-            generator.cuda(), noise, path="", title="output.jpg", device=args.device
+        for i in range(20):
+            noise = generate_noise(1, 100, 3).cuda()
+            save_gen_img(
+                generator.cuda(),
+                noise,
+                path="",
+                title=f"output_{i}.jpg",
+                device=args.device,
+            )
+    elif args.mode == "test":
+        dataset = Data_L(data_folder=os.path.join("script", "input", str(args.img_dim)))
+        train_params = TrainParams(
+            train_size=dataset.train_size, seed=args.random_seed, telegram=args.telegram
+        )
+
+        test(
+            generator,
+            discriminator,
+            test_dataloader=dataset.get_test_set(batch_size=train_params.batch_size),
+            out_dir="OUTPUT_TEST",
+            device=args.device,
         )
 
 

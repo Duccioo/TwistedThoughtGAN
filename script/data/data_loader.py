@@ -52,10 +52,10 @@ class Data_L:
 
         return DataLoader(self.train_dataset, batch_size=batch_size, shuffle=shuffle)
 
-    def get_test_set(self, shuffle=True):
-        return DataLoader(
-            self.test_dataset, batch_size=self.batch_size, shuffle=shuffle
-        )
+    def get_test_set(self, shuffle=True, batch_size=0):
+        if batch_size == 0:
+            batch_size = self.batch_size
+        return DataLoader(self.test_dataset, batch_size=batch_size, shuffle=shuffle)
 
     def get_val_set(self, shuffle=True, batch_size=0):
         if batch_size == 0:

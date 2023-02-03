@@ -24,7 +24,7 @@ from validation import validation
 _checkpoint_base_name = "state_dict"
 
 
-def compute_gradient_penalty(discriminator, real_samples, fake_samples, device="cuda"):
+def compute_gradient_penalty(discriminator, real_samples, fake_samples, device="cpu"):
     """Calculates the gradient penalty loss"""
     # Random weight term for interpolation between real and fake samples
     alpha = torch.rand(
@@ -60,15 +60,13 @@ def generator_loss(discriminator, fake, loss_type):
         return (torch.log(1.0 - discriminator(fake))).mean()
 
     elif loss_type == "wasserstein" or loss_type == "hinge":
-
         return -(discriminator(fake)).mean()
 
 
-def discriminator_loss(discriminator, real, fake, params):
+def discriminator_loss(discriminator, real, fake, params, device="cpu"):
     loss = 0
 
     if params.loss == "standard" or params.loss == "js":
-
         loss = (
             -(torch.log(discriminator(real))).mean()
             - (torch.log(1 - discriminator(fake))).mean()
@@ -87,7 +85,7 @@ def discriminator_loss(discriminator, real, fake, params):
 
     if params.gradient_penalty > 0.0:
         loss += params.gradient_penalty * compute_gradient_penalty(
-            discriminator, real.data, fake.data
+            discriminator, real.data, fake.data, device=device
         )
     return loss
 
@@ -103,7 +101,6 @@ def train(
     out_dir="OUTPUT_training",
     device="cpu",
 ):
-
     # inizializzo le metriche per la fase di validation
     psnr = 0
     ssim_v = 0
@@ -190,7 +187,6 @@ def train(
         tqdm_gen = tqdm.tqdm(train_dataloader, smoothing=0.7, position=1, leave=False)
 
         for real_samples, _ in tqdm_gen:
-
             # D step
             z = generate_noise(
                 real_samples.size(0), dim=100, n_distributions=3, device=device
@@ -198,7 +194,11 @@ def train(
             fake_samples = generator(z)
             optimizer_D.zero_grad()
             d_loss = discriminator_loss(
-                discriminator, real_samples.to(device), fake_samples, params
+                discriminator,
+                real_samples.to(device),
+                fake_samples,
+                params,
+                device=device,
             )
             d_loss.backward()
             optimizer_D.step()
@@ -216,7 +216,6 @@ def train(
                 g_step += 1
 
             if step % params.steps_per_val == 0 and step > 0:
-
                 (
                     psnr,
                     ssim_v,
