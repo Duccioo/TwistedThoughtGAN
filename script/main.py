@@ -128,7 +128,7 @@ class ModelParams:
 
 
 
-        self.telegram = True
+        self.telegram = False
 
         for key, val in kwargs.items():
             if val is not None:
