@@ -117,7 +117,7 @@ You can use a built-in script in Google Colab to run a training example of this 
 
 [GOOGLE COLAB LINK](https://colab.research.google.com/drive/16KQd0E_Xf5a1uc1Fkp38f1yfYY9M2zT9?usp=sharing)
 ## Report
-[Link to the Report](https://docs.google.com/viewer?url=https://github.com/Duccioo/TwistedThoughtGAN/blob/main/TwistedThoughtGAN_report_v2.pdf?raw=true)
+[Link to the Report](https://duccioo.github.io/TwistedThoughtGAN/TwistedThoughtGAN_report_v2.pdf)
 
 
 
