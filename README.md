@@ -94,7 +94,7 @@ You can use several command to run the script.
 
 - ```--mode *train or test or generate*``` :start the selected procedure (default: train)
 
-    - If you want to use the ```--mode train``` you have to create inside ```script/``` an ```input/``` folder and inside ```input``` then create a ```128/``` folder and a ```256/``` folder, the check the [Run Locally Paragraph](https://github.com/Duccioo/):
+    - If you want to use the ```--mode train``` you have to create inside ```script/``` an ```input/``` folder and inside ```input``` then create a ```128/``` folder and a ```256/``` folder, the check the [Run Locally Paragraph](https://github.com/Duccioo/TwistedThoughtGAN/blob/main/README.md#run-locally):
         
 
     - If you want to use the ```--mode generate``` you have to put the desired model in the ```model``` folder and rename it to ```model.pt```
