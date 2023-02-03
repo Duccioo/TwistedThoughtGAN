@@ -118,7 +118,7 @@ You can use a built-in script in Google Colab to run a training example of this 
 [GOOGLE COLAB LINK](https://colab.research.google.com/drive/16KQd0E_Xf5a1uc1Fkp38f1yfYY9M2zT9?usp=sharing)
 ## Report
 [Link to the Report]()
-## Demo OUTPUT
+
 
 
 ## Feedback
