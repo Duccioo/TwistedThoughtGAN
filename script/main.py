@@ -80,7 +80,7 @@ class TrainParams:
 
         if self.train_size % self.batch_size != 0:
             self.batch_size = get_closest_batch_size(self.train_size, self.batch_size)
-            print("non divisibili, scelgo batch_size:", self.batch_size)
+            print("batch_size:", self.batch_size)
 
         self.step_per_epoch = int(self.train_size / self.batch_size)
         self.steps = self.step_per_epoch * self.epoch
@@ -126,7 +126,7 @@ class ModelParams:
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         self.out_dir = "OUTPUT"
 
-        self.n_generate_img = 100
+
 
         self.telegram = True
 
