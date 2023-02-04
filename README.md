@@ -7,6 +7,9 @@
 Code for the Neural Network exam.
 
 This repository contains the code for a GAN neural network that aims to generate Lissajous figures. Although the results are not exactly Lissajous figures, they are unique and resemble mind flayer or upside down structures. The code is written in Python and includes various modifications to the network architecture, loss functions, learning rate, and other parameters. The purpose of this repository is to showcase the potential of GANs in generating creative and unexpected outputs, even when the original goal is not fully achieved.
+##Presentation
+[LINK to the presentation](https://duccioo.github.io/TwistedThoughtGAN/Generating Lissajous Figures using GAN (2).pdf)
+
 ## Environment Variables
 
 To run the training phase, you will need to add the following environment variables to your .env file or you can use the default ones in the `/script/main.py`
