@@ -69,7 +69,7 @@ class TrainParams:
         self.telegram = False
 
         # testing parameters:
-        self.steps_per_val = 500
+        self.steps_per_val = 50
 
         for key, val in kwargs.items():
             if key == "loss" and isinstance(val, str):
@@ -125,8 +125,6 @@ class ModelParams:
 
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         self.out_dir = "OUTPUT"
-
-
 
         self.telegram = False
 

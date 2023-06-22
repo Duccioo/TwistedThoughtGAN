@@ -35,13 +35,15 @@ def evaluate_discriminator(
             fake_data = generator(noise.to(device)).detach()
 
             output = discriminator(real_data)
-            predictions += list(((output)).long().cpu().numpy())
+            print(output)
+            predictions += list(((torch.round(output))).long().cpu().numpy())
             labels += list(real_labels.cpu().numpy())
 
             output = discriminator(fake_data)
-            predictions += list(((output)).long().cpu().numpy())
+            predictions += list(((torch.round(output))).long().cpu().numpy())
             labels += list(fake_labels.cpu().numpy())
 
+    
     report = classification_report(
         labels, predictions, output_dict=True, zero_division=0
     )

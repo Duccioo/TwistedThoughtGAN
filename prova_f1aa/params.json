@@ -1,0 +1,1 @@
+{"epoch": 200, "batch_size": 64, "train_size": 16000, "disc_steps": 2, "rate_g": 0.001, "rate_d": 0.0005, "gradient_penalty": 2.3, "betas": [0.5, 0.999], "loss": "standard", "seed": 42, "steps_per_log": 5, "steps_per_img_save": 1000, "steps_per_checkpoint": 1000, "steps_per_clean": 2000, "telegram": true, "steps_per_val": 50, "step_per_epoch": 250, "steps": 50000}

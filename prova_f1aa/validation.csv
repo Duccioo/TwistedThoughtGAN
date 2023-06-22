@@ -1,0 +1,2 @@
+Step,Epoch,Loss D,Loss G,SSIM,PSNR,SWD,Accuracy,Precision,Recall,F1_score,Support,TIME
+50,0,0.5376,1.7450,-0.0028,-0.6153,2024.5814,0.6405,0.7191,0.6405,0.6051,4000.0000,2023-02-12 01:27:04
