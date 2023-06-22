@@ -28,7 +28,7 @@ To run the training phase, you will need to add the following environment variab
 
 `GRADIENT_PENALTY = *default 0.0*` 
 
-`STEPS_PER_IMG_SAVE = *number of step before saving image and optional sand telegram message*`
+`STEPS_PER_IMG_SAVE = *number of step before saving image and optional send telegram message*`
 
 - Optional if you want to send an alert on telegram: 
 
